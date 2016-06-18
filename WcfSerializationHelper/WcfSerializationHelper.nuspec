@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>WcfSerializationHelper</id>
+    	  <version>$PackageVersion$</version>
+        <title>WCF Serialization Helper</title>
+        <authors>Tony Sneed</authors>
+        <owners>Tony Sneed</owners>
+        <licenseUrl>https://github.com/tonysneed/wcf-serialization-helper/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/tonysneed/wcf-serialization-helper</projectUrl>
+        <iconUrl>https://cloud.githubusercontent.com/assets/2836367/6191469/f1f0d96e-b3a9-11e4-9636-1f354975338a.jpg</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Helper library with a WCF behavior for configuring the Data Contract Serializer to handle cyclical references.</description>
+        <language>en-US</language>
+        <tags>wcf serialization entity-framework</tags>
+    </metadata>
+</package>

@@ -1,0 +1,24 @@
+﻿<controls:MetroWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    x:Class="GNW.ILS.WPF.MainWindow" 
+    WindowState="Maximized"
+    Icon="Resources/PrevationIcon.ico"
+	GlowBrush="{DynamicResource AccentColorBrush}"
+    ShowIconOnTitleBar="True" Title="Pervation">
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button x:Name="BtnLogout" Visibility="Collapsed" Click="BtnLogout_OnClick">
+                <StackPanel Orientation="Horizontal">
+                    <Path Data="M64.541874,19.451 C65.181499,19.451 65.821247,19.695251 66.30975,20.18375 L76.952747,30.826752 C76.952747,30.827751 76.953754,30.827751 76.954754,30.828751 76.955753,30.82975 76.956753,30.83075 76.957752,30.831753 L78.724751,32.598751 66.30975,45.013752 C65.820751,45.501751 65.181751,45.74575 64.541752,45.74575 63.901752,45.74575 63.261753,45.501751 62.773754,45.013752 61.796749,44.03775 61.796749,42.45575 62.773754,41.478752 L69.153751,35.098751 32.599751,35.098751 C31.21875,35.098751 30.099751,33.979752 30.099751,32.598751 30.099751,31.217751 31.21875,30.098751 32.599751,30.098751 L69.154751,30.098751 62.774754,23.71875 C61.797749,22.742752 61.797749,21.159752 62.774754,20.18375 63.262753,19.695251 63.902256,19.451 64.541874,19.451 z M32.599377,0 C40.951252,0 49.303257,3.1792507 55.661755,9.5377502 56.638752,10.513752 56.638752,12.09675 55.661755,13.072752 54.685749,14.049751 53.103748,14.049751 52.126751,13.072752 41.358749,2.3057518 23.840752,2.3057518 13.072752,13.072752 2.3057518,23.839752 2.3057518,41.358749 13.072752,52.126751 23.839752,62.89175 41.35775,62.89275 52.126751,52.126751 53.102749,51.149754 54.68475,51.150753 55.661755,52.126751 56.638752,53.102749 56.638752,54.685749&#xD;&#xA;55.661755,55.661755 49.303753,62.019749 40.951752,65.19875 32.599751,65.19875 24.247749,65.19875 15.895752,62.019749 9.5377502,55.662754 -3.1792488,42.945751 -3.1792488,22.25375 9.5377502,9.5377502 15.895748,3.1792507 24.247501,0 32.599377,0 z" Stretch="Fill" Width="19" Height="16" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#FFAC2C2C"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Logout" />
+                </StackPanel>
+            </Button>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid x:Name="GdBodyContent" ></Grid>
+        <StackPanel x:Name="MessageControllerStackPanel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.ZIndex="999"/>
+    </Grid>
+</controls:MetroWindow>

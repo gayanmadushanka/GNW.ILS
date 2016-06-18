@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Service="GNW.ILS.Service.WCF.AddressTypeService" %>

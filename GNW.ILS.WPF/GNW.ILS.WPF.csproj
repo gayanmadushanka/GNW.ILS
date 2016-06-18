@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61E541DC-9E77-46FF-AF5F-6E2C477B6D8C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GNW.ILS.WPF</RootNamespace>
+    <AssemblyName>GNW.ILS.WPF</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking">
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\GNW.ILS.Lib\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CommonView\Block.xaml.cs">
+      <DependentUpon>Block.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonView\LoadingAnimation.xaml.cs">
+      <DependentUpon>LoadingAnimation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Favorite\FavoriteEnum.cs" />
+    <Compile Include="Master\ucCompanyMaster.xaml.cs">
+      <DependentUpon>ucCompanyMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc_DockingView.xaml.cs">
+      <DependentUpon>uc_DockingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="uc_Tiles_MAIN_INITIALIZE_DATA.xaml.cs">
+      <DependentUpon>uc_Tiles_MAIN_INITIALIZE_DATA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_Basic_Windows\Base\UCBase.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\ChequeNoValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\CreditCardNoValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\DateTimeFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\EmailFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\IntegerFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\LessThanOrEqualFieldValidator.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\NumericFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\OnlyNumericValadator.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\OnlyNumericValadator2.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\PasswordConfirmationFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\PercentageFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\RangeFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\RequiredFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\CommonFieldValidations\TelePhoneNumberFieldValidation.cs" />
+    <Compile Include="_Basic_Windows\UserControls\UCToolmnu.xaml.cs">
+      <DependentUpon>UCToolmnu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CommonView\Block.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CommonView\LoadingAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoggingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="LoggingView.xaml.cs">
+      <DependentUpon>LoggingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Master\ucCompanyMaster.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\BrushColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\CoreStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Theme\Font.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="uc_DockingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="uc_Tiles_MAIN_INITIALIZE_DATA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="_Basic_Windows\UserControls\UCToolmnu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Theme\Fonts\segoeui-light.ttf" />
+    <Resource Include="Theme\Fonts\segoeui-reguler.ttf" />
+    <Resource Include="Theme\Fonts\segui-semibold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\add_user.png" />
+    <Resource Include="Resources\add_user_group.png" />
+    <Resource Include="Resources\Assign-user-location.png" />
+    <Resource Include="Resources\assign_user_group.png" />
+    <Resource Include="Resources\assign_user_group_rights.png" />
+    <Resource Include="Resources\bg.png" />
+    <Resource Include="Resources\bg12012015.png" />
+    <Resource Include="Resources\bg_1.jpg" />
+    <Resource Include="Resources\bg_2.jpg" />
+    <Resource Include="Resources\bg_3.jpg" />
+    <Resource Include="Resources\bg_4.jpg" />
+    <Resource Include="Resources\company_profile.png" />
+    <Resource Include="Resources\currency.png" />
+    <Resource Include="Resources\customer_category.png" />
+    <Resource Include="Resources\DashboardMinIcon\CompanyWiseCollection.png" />
+    <Resource Include="Resources\DashboardMinIcon\CompanyWiseSaleAnalysis.png" />
+    <Resource Include="Resources\DashboardMinIcon\CompanyWiseSalesReturns.png" />
+    <Resource Include="Resources\DashboardMinIcon\CompanyWiseStockValuation.png" />
+    <Resource Include="Resources\DashboardMinIcon\CostAnalysis.png" />
+    <Resource Include="Resources\DashboardMinIcon\CustomerOutstanding.png" />
+    <Resource Include="Resources\DashboardMinIcon\LocationWiseSalesAnalysis.png" />
+    <Resource Include="Resources\DashboardMinIcon\RouteWiseSales.png" />
+    <Resource Include="Resources\DashboardMinIcon\SalesAnalysis.png" />
+    <Resource Include="Resources\DashboardMinIcon\SalesmanWiseSales.png" />
+    <Resource Include="Resources\DashboardMinIcon\Top10Customers.png" />
+    <Resource Include="Resources\DashboardMinIcon\Top10FastMovingItems.png" />
+    <Resource Include="Resources\DashboardMinIcon\Top10SlowMovingItems.png" />
+    <Resource Include="Resources\delete.png" />
+    <Resource Include="Resources\delivery_note.png" />
+    <Resource Include="Resources\departments.png" />
+    <Resource Include="Resources\Exclamation-64x.png" />
+    <Resource Include="Resources\exclamation.png" />
+    <Resource Include="Resources\favicon-1.ico" />
+    <Resource Include="Resources\Field_Validation_Error_Icon.png" />
+    <Resource Include="Resources\Finance.png" />
+    <Resource Include="Resources\gnr.png" />
+    <Resource Include="Resources\img_16_validation_error.png" />
+    <Resource Include="Resources\Info-64x.PNG" />
+    <Resource Include="Resources\info.png" />
+    <Resource Include="Resources\inventory_banner_img.jpg" />
+    <Resource Include="Resources\irem_return_note.png" />
+    <Resource Include="Resources\ItemTransfer-Requisition.png" />
+    <Resource Include="Resources\item_category.png" />
+    <Resource Include="Resources\item_transfer.png" />
+    <Resource Include="Resources\Job-Requisition.png" />
+    <Resource Include="Resources\key_pwdl.png" />
+    <Resource Include="Resources\LargeIcons\Atom.png" />
+    <Resource Include="Resources\LargeIcons\Brush.png" />
+    <Resource Include="Resources\LargeIcons\CalendarEvents.png" />
+    <Resource Include="Resources\LargeIcons\CDBurn.png" />
+    <Resource Include="Resources\LargeIcons\ChartDot.png" />
+    <Resource Include="Resources\LargeIcons\Connected.png" />
+    <Resource Include="Resources\LargeIcons\Favorites.png" />
+    <Resource Include="Resources\LargeIcons\Games.png" />
+    <Resource Include="Resources\left-menu.png" />
+    <Resource Include="Resources\left-menu_light_blue_2.png" />
+    <Resource Include="Resources\left-menu_light_blue_3.png" />
+    <Resource Include="Resources\Material-Requisition.png" />
+    <Resource Include="Resources\Messagebox Critical.png" />
+    <Resource Include="Resources\Messagebox Warning.png" />
+    <Resource Include="Resources\MessageBox_Exclamation.png" />
+    <Resource Include="Resources\Messagebox_information.png" />
+    <Resource Include="Resources\MinGridData\BlacklistCustomer.png" />
+    <Resource Include="Resources\MinGridData\CustomerAging.png" />
+    <Resource Include="Resources\MinGridData\CustomerExceedCreditLimit.png" />
+    <Resource Include="Resources\MinGridData\CustomerExceedCreditPeriod.png" />
+    <Resource Include="Resources\MinGridData\CustomerProfile.png" />
+    <Resource Include="Resources\MinGridData\ExpiryItems.png" />
+    <Resource Include="Resources\MinGridData\ItemConsumption.png" />
+    <Resource Include="Resources\MinGridData\ItemReachedForRole.png" />
+    <Resource Include="Resources\MinGridData\LatePurcheseOrder.png" />
+    <Resource Include="Resources\MinGridData\PartialPurcheseOrder.png" />
+    <Resource Include="Resources\MinGridData\PeriodicalSalesSummery.png" />
+    <Resource Include="Resources\MinGridData\PriceVariation.png" />
+    <Resource Include="Resources\MinGridData\SuplierCreditLimit.png" />
+    <Resource Include="Resources\MinIcons\Assign-user-location.png" />
+    <Resource Include="Resources\MinIcons\assign_user_group.png" />
+    <Resource Include="Resources\MinIcons\company_profile.png" />
+    <Resource Include="Resources\MinIcons\customer_category.png" />
+    <Resource Include="Resources\MinIcons\gnr.png" />
+    <Resource Include="Resources\MinIcons\GroupRights.png" />
+    <Resource Include="Resources\MinIcons\ItemTransfer-Requisition.png" />
+    <Resource Include="Resources\MinIcons\item_category.png" />
+    <Resource Include="Resources\MinIcons\item_transfer.png" />
+    <Resource Include="Resources\MinIcons\Job-Requisition.png" />
+    <Resource Include="Resources\MinIcons\Material-Requisition.png" />
+    <Resource Include="Resources\MinIcons\New-company.png" />
+    <Resource Include="Resources\MinIcons\New-Salesman.png" />
+    <Resource Include="Resources\MinIcons\new_customer.png" />
+    <Resource Include="Resources\MinIcons\new_item.png" />
+    <Resource Include="Resources\MinIcons\new_supplier.png" />
+    <Resource Include="Resources\MinIcons\Payment_Type.png" />
+    <Resource Include="Resources\MinIcons\PO-Approval.png" />
+    <Resource Include="Resources\MinIcons\PR-Approval.png" />
+    <Resource Include="Resources\MinIcons\Purchase-Requisition.png" />
+    <Resource Include="Resources\MinIcons\purchase_order.png" />
+    <Resource Include="Resources\MinIcons\Route-Master.png" />
+    <Resource Include="Resources\MinIcons\sales_invoice.png" />
+    <Resource Include="Resources\MinIcons\Sales_Receipt.png" />
+    <Resource Include="Resources\MinIcons\sales_return.png" />
+    <Resource Include="Resources\MinIcons\Stock-Adjectments.png" />
+    <Resource Include="Resources\MinIcons\store_location.png" />
+    <Resource Include="Resources\MinIcons\Supplier-Returns.png" />
+    <Resource Include="Resources\MinIcons\supplier_category.png" />
+    <Resource Include="Resources\MinIcons\unit_of_measure.png" />
+    <Resource Include="Resources\MinIcons\user-info.png" />
+    <Resource Include="Resources\MinIcons\user_group.png" />
+    <Resource Include="Resources\name.png" />
+    <Resource Include="Resources\New-company.png" />
+    <Resource Include="Resources\New-Salesman.png" />
+    <Resource Include="Resources\new_customer.png" />
+    <Resource Include="Resources\new_item.png" />
+    <Resource Include="Resources\new_supplier.png" />
+    <Resource Include="Resources\ok-256x2561.png" />
+    <Resource Include="Resources\Pass Lock Icon 2.png" />
+    <Resource Include="Resources\Pass Lock Icon.png" />
+    <Resource Include="Resources\Payment_Type.png" />
+    <Resource Include="Resources\photos.png" />
+    <Resource Include="Resources\PO-Approval.png" />
+    <Resource Include="Resources\PR-Approval.png" />
+    <Resource Include="Resources\PrevationIcon.ico" />
+    <Resource Include="Resources\Purchase-Requisition.png" />
+    <Resource Include="Resources\purchase_order.png" />
+    <Resource Include="Resources\Question-64x.png" />
+    <Resource Include="Resources\question-blue.png" />
+    <Resource Include="Resources\Question-Mark.jpg" />
+    <Resource Include="Resources\question-red.png" />
+    <Resource Include="Resources\ReportMinIcon\DebtorOutstandingDetailReport.png" />
+    <Resource Include="Resources\ReportMinIcon\DebtorOutstandingSummeryReport.png" />
+    <Resource Include="Resources\ReportMinIcon\GeneralCustomerListingReport.png" />
+    <Resource Include="Resources\ReportMinIcon\GoodsReceiptDetailsReport.png" />
+    <Resource Include="Resources\ReportMinIcon\GRNSummeryReport.png" />
+    <Resource Include="Resources\ReportMinIcon\StockBalanceDetailReport.png" />
+    <Resource Include="Resources\ReportMinIcon\StockBalanceReport.png" />
+    <Resource Include="Resources\ReportMinIcon\StockBalanceSummeryReport.png" />
+    <Resource Include="Resources\ReportMinIcon\StockMovementReport.png" />
+    <Resource Include="Resources\Route-Master.png" />
+    <Resource Include="Resources\sales_invoice.png" />
+    <Resource Include="Resources\sales_order.png" />
+    <Resource Include="Resources\Sales_Receipt.png" />
+    <Resource Include="Resources\sales_return.png" />
+    <Resource Include="Resources\san.png" />
+    <Resource Include="Resources\snr.png" />
+    <Resource Include="Resources\Stock-Adjectments.png" />
+    <Resource Include="Resources\store_location.png" />
+    <Resource Include="Resources\Supplier-Returns.png" />
+    <Resource Include="Resources\supplier_category.png" />
+    <Resource Include="Resources\Tile Icons.png" />
+    <Resource Include="Resources\Tile Icons_Main .png" />
+    <Resource Include="Resources\unit_of_measure.png" />
+    <Resource Include="Resources\user-info.png" />
+    <Resource Include="Resources\user-name.png" />
+    <Resource Include="Resources\username.png" />
+    <Resource Include="Resources\Users\1001.png" />
+    <Resource Include="Resources\Users\1002 %282%29.png" />
+    <Resource Include="Resources\Users\1002.png" />
+    <Resource Include="Resources\Users\1004.png" />
+    <Resource Include="Resources\Users\3006.png" />
+    <Resource Include="Resources\Users\Admin.png" />
+    <Resource Include="Resources\Users\New folder\1001.png" />
+    <Resource Include="Resources\user_group.png" />
+    <Resource Include="Resources\warning-256x256.png" />
+    <Resource Include="Resources\warning-256x307.png" />
+    <Resource Include="Resources\Warning-64x.PNG" />
+    <Resource Include="Resources\workstation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MessageControl\MessageControl.csproj">
+      <Project>{5F274919-380B-4774-9580-724AF691869C}</Project>
+      <Name>MessageControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

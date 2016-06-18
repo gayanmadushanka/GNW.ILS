@@ -1,0 +1,164 @@
+﻿<base:UCBase
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:bar="clr-namespace:Pervation.Presentation.DashBoard.Chart.Bar"
+    xmlns:base="clr-namespace:Pervation.Presentation._Basic_Windows.Base"
+    xmlns:chart="clr-namespace:Pervation.Presentation.DashBoard.Chart"
+    x:Class="Pervation.Presentation.DashBoard.Chart.Bar.BarChart"
+    mc:Ignorable="d"  d:DesignWidth="848.013" d:DesignHeight="453" MouseDoubleClick="BarChart_OnMouseDoubleClick">
+    <UserControl.Resources>
+        
+        <chart:OrientationToBooleanConverter x:Key="OrientationConverter" />
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <bar:BarChartViewModel />
+    </UserControl.DataContext>
+    <Grid>
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="VisualStateGroup">
+    			<VisualState x:Name="LegendPopOpenVisualState">
+    				<Storyboard>
+    					<BooleanAnimationUsingKeyFrames Storyboard.TargetProperty="(Popup.IsOpen)" Storyboard.TargetName="legendPop">
+    						<DiscreteBooleanKeyFrame KeyTime="0" Value="True"/>
+    					</BooleanAnimationUsingKeyFrames>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="LegendPopCloseVisualState"/>
+    		</VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+      
+        <!--<TextBlock Text="{Binding ChartData.Title,Mode=TwoWay}" Grid.Row="0" HorizontalAlignment="Left" FontSize="21.333" FontFamily="{DynamicResource LightFontFamily}" Margin="5,0,0,0"  />-->
+        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2" >
+    		<CheckBox Content="Change Orientation" Visibility="{Binding ChartData.ChangeOrientationVisibility, Mode=TwoWay}" IsChecked="{Binding ChartOrientation, Converter={StaticResource OrientationConverter}, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,10,0" FontSize="10.667"/>
+    		<CheckBox x:Name="ChkShowLabel" Visibility="{Binding ChartData.ShowLabelVisibility, Mode=TwoWay}" Content="Show Labels" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="10.667"/>
+    	</StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
+			   <Grid Height="24" Width="24" Margin="0,0,5,0">
+                <Button x:Name="btnlegend" Click="Btnlegend_OnClick" Style="{DynamicResource ToolMenuButtonStyle}" ToolTip="LEGEND" Visibility="{Binding ChartData.LegendVisibility, Mode=TwoWay}">
+        			<Grid Margin="-3">
+        				<Path Data="M62.901597,39.2 L63.101594,39.2 C66.301599,39.2 68.901597,41.799999 68.901597,45 68.901597,48.2 66.301599,50.799999 63.101594,50.799999 L62.901597,50.799999 C59.701592,50.799999 57.101594,48.2 57.101594,45 57.101594,41.799999 59.701592,39.2 62.901597,39.2 z M44.901597,39.2 L45.101594,39.2 C48.301595,39.2 50.901597,41.799999 50.901597,45 50.901597,48.2 48.301595,50.799999 45.101594,50.799999 L44.901597,50.799999 C41.701596,50.799999 39.101594,48.2 39.101594,45 39.101594,41.799999 41.701596,39.2 44.901597,39.2 z M27.001595,39.2 L27.201596,39.2 C30.401597,39.2 33.001595,41.799999 33.001595,45 33.001595,48.2 30.401597,50.799999 27.201596,50.799999 L27.001595,50.799999 C23.801595,50.799999 21.201596,48.2 21.201596,45 21.201596,41.799999 23.801595,39.2 27.001595,39.2 z M45.301595,6.1000009 C23.701596,6.0999999 6.2015953,23.5 6.1015968,44.799999 6.0015955,55.2 10.001595,65 17.201596,72.300003 24.601596,79.699996 34.301595,83.800003 44.701596,83.900001 L45.001595,83.900001 C66.301599,83.900001 83.801599,66.599998 84.001595,45.299999 84.101594,23.799999 66.801599,6.1999993 45.301595,6.1000009 z M45.001595,0 C70.101594,0.19999933 90.201592,20.5 90.001595,45.299999 89.801599,69.900001 69.701592,90 45.001595,90 45.001595,90 44.701596,90 44.701596,90 32.701596,89.900001 21.401595,85.199996 13.001595,76.599998 4.5015955,68.099998 -0.098404408,56.7 0.0015969276,44.7 0.20159531,20.1 20.301595,-4.7683716E-07 45.001595,0 z" Stretch="Fill" Fill="#FF0A3B51" Width="24" Height="24"/>
+        			</Grid>
+        		</Button>
+        		<Popup x:Name="legendPop" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="1031" Margin="0,24,0,0" VerticalOffset="5">
+            		<Border BorderBrush="#FF747474" BorderThickness="1" Background="White" Padding="10">
+            			<Grid>
+            				<StackPanel Orientation="Vertical">
+            					<TextBlock Text="LEGEND" HorizontalAlignment="Left" Foreground="#FF666666"/>
+            					<telerik:RadLegend Items="{Binding LegendItems, ElementName=RadCartesianChart}" />
+            				</StackPanel>
+            			</Grid>
+            		</Border></Popup>
+        	</Grid>
+            <telerik:RadRadioButton x:Name="BtnDaily" Checked="BtnDaily_OnClick" Visibility="{Binding ChartData.BtnDailyVisibility, Mode=TwoWay}" Width="24" Height="24" Style="{DynamicResource DailyRadRadioButtonStyle}" Margin="0,0,5,0"/>
+            <telerik:RadRadioButton x:Name="BtnWeekly" Checked="BtnWeekly_OnClick" Visibility="{Binding ChartData.BtnWeeklyVisibility, Mode=TwoWay}" Style="{DynamicResource WeeklyRadRadioButtonStyle}" Width="24" Height="24" Margin="0,0,5,0"/>
+            <telerik:RadRadioButton x:Name="BtnMonthly" Checked="BtnMonthly_OnClick" Visibility="{Binding ChartData.BtnMonthlyVisibility, Mode=TwoWay}" Style="{DynamicResource MonthlyRadRadioButtonStyle}" Width="24" Height="24" Margin="0,0,5,0"/>
+            <telerik:RadRadioButton x:Name="BtnYearly" Content="Yearly" Checked="BtnYearly_OnClick" Visibility="{Binding ChartData.BtnYearlyVisibility, Mode=TwoWay}" Width="24" Height="24" Style="{DynamicResource YearlyRadRadioButtonStyle}"/>
+        </StackPanel>
+    	<telerik:RadCartesianChart x:Name="RadCartesianChart"  Grid.Column="0" Palette="Windows8" chart:OrientationBehavior.Orientation="{Binding ChartOrientation, Mode=TwoWay}" Margin="0,5,0,0" Grid.Row="1">
+    		<telerik:RadCartesianChart.EmptyContentTemplate>
+    			<DataTemplate>
+    				<StackPanel>
+    					<TextBlock Text="You have to drag some dashboard item."/>
+    				</StackPanel>
+    			</DataTemplate>
+    		</telerik:RadCartesianChart.EmptyContentTemplate>
+    		<!--<telerik:RadCartesianChart.Behaviors>
+                <telerik:ChartPanAndZoomBehavior ZoomMode="Horizontal" />
+            </telerik:RadCartesianChart.Behaviors>-->
+    		<!--<telerik:RadCartesianChart.HorizontalAxis>
+                <telerik:CategoricalAxis PlotMode="OnTicks" MajorTickInterval="1" GapLength="{Binding GapLength}"/>
+            </telerik:RadCartesianChart.HorizontalAxis>
+            <telerik:RadCartesianChart.VerticalAxis>
+                <telerik:LinearAxis LabelFormat="N0" Title="{Binding AxisTitle}" MajorStep="{Binding AxisStep}" Minimum="0" Maximum="{Binding AxisMaxValue}"/>
+            </telerik:RadCartesianChart.VerticalAxis>
+            <telerik:RadCartesianChart.Grid >
+                <telerik:CartesianChartGrid StripLinesVisibility="None" MajorLinesVisibility="XY">
+                    <telerik:CartesianChartGrid.YStripeBrushes>
+                        <SolidColorBrush Color="#FFD7D7D7" Opacity="0.3" />
+                        <SolidColorBrush Color="Transparent" />
+                    </telerik:CartesianChartGrid.YStripeBrushes>
+                </telerik:CartesianChartGrid>
+            </telerik:RadCartesianChart.Grid>-->
+    		<!--LabelFitMode="Rotate" LabelRotationAngle="45"/>-->
+    		<telerik:RadCartesianChart.HorizontalAxis>
+    			<telerik:CategoricalAxis PlotMode="BetweenTicks" GapLength="{Binding GapLength}" />
+    		</telerik:RadCartesianChart.HorizontalAxis>
+    		<telerik:RadCartesianChart.VerticalAxis>
+    			<telerik:LinearAxis LabelFormat="N0" Title="{Binding ChartData.AxisTitle, Mode=TwoWay}"/>
+    		</telerik:RadCartesianChart.VerticalAxis>
+    		<telerik:RadCartesianChart.Grid>
+    			<telerik:CartesianChartGrid MajorLinesVisibility="Y" StripLinesVisibility="Y" />
+    		</telerik:RadCartesianChart.Grid>
+
+    		<telerik:BarSeries x:Name="BarSeries1" ItemsSource="{Binding ChartData.SeriesOneData.CategoryValuePairList, Mode=TwoWay}" CategoryBinding="Category" ValueBinding="Value" ShowLabels="{Binding IsChecked, ElementName=ChkShowLabel}">
+    			<!--<telerik:BarSeries.VerticalAxis>
+                    <telerik:LinearAxis LabelFormat="N0" MajorStep="{Binding AxisStep}" Minimum="0" Maximum="{Binding AxisMaxValue}" HorizontalLocation="Right"/>
+                </telerik:BarSeries.VerticalAxis>-->
+    			<telerik:BarSeries.LegendSettings>
+    				<telerik:SeriesLegendSettings Title="{Binding ChartData.SeriesOneData.Legend, Mode=TwoWay}" />
+    			</telerik:BarSeries.LegendSettings>
+
+    			<!--<telerik:BarSeries.LabelDefinitions>
+                    <telerik:ChartSeriesLabelDefinition  HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <telerik:ChartSeriesLabelDefinition.Template>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Canvas Width="0" Height="16">
+                                        <TextBlock Text="{Binding Category}" Margin="4 0 0 0"/>
+                                    </Canvas>
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:ChartSeriesLabelDefinition.Template>
+                    </telerik:ChartSeriesLabelDefinition>
+                </telerik:BarSeries.LabelDefinitions>-->
+    		</telerik:BarSeries>
+
+    		<telerik:BarSeries x:Name="BarSeries2" ItemsSource="{Binding ChartData.SeriesTwoData.CategoryValuePairList, Mode=TwoWay}" CategoryBinding="Category" ValueBinding="Value" ShowLabels="{Binding IsChecked, ElementName=ChkShowLabel}">
+    			<telerik:BarSeries.LegendSettings>
+    				<telerik:SeriesLegendSettings Title="{Binding ChartData.SeriesTwoData.Legend, Mode=TwoWay}" />
+    			</telerik:BarSeries.LegendSettings>
+    			<!--<telerik:BarSeries.PointTemplate>
+                    <DataTemplate>
+                        <Border x:Name="ParentBorder">
+                            <Border x:Name="MyAnimatedRectangle" VerticalAlignment="Bottom" Background="{Binding ElementName=RadCartesianChart, Path=Palette.GlobalEntries[1].Fill}">
+                                <Border.Triggers>
+                                    <EventTrigger RoutedEvent="Border.Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetName="MyAnimatedRectangle"
+                                                                 Storyboard.TargetProperty="Height"
+                                                                 From="0.0"
+                                                                 To="{Binding ElementName=ParentBorder, Path=ActualHeight}"
+                                                                 Duration="0:0:5"  />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Border.Triggers>
+                            </Border>
+                        </Border>
+                    </DataTemplate>
+                </telerik:BarSeries.PointTemplate>-->
+    		</telerik:BarSeries>
+
+    		<telerik:BarSeries x:Name="BarSeries3" ItemsSource="{Binding ChartData.SeriesThreeData.CategoryValuePairList, Mode=TwoWay}" CategoryBinding="Category" ValueBinding="Value" ShowLabels="{Binding IsChecked, ElementName=ChkShowLabel}">
+    			<telerik:BarSeries.LegendSettings>
+    				<telerik:SeriesLegendSettings Title="{Binding ChartData.SeriesThreeData.Legend, Mode=TwoWay}" />
+    			</telerik:BarSeries.LegendSettings>
+    		</telerik:BarSeries>
+
+    		<telerik:BarSeries x:Name="BarSeries4" ItemsSource="{Binding ChartData.SeriesFourData.CategoryValuePairList, Mode=TwoWay}" Visibility="{Binding ChartData.BtnDailyVisibility, Mode=TwoWay}" CategoryBinding="Category" ValueBinding="Value" ShowLabels="{Binding IsChecked, ElementName=ChkShowLabel}">
+    			<telerik:BarSeries.LegendSettings>
+    				<telerik:SeriesLegendSettings Title="{Binding ChartData.SeriesFourData.Legend, Mode=TwoWay}" />
+    			</telerik:BarSeries.LegendSettings>
+    		</telerik:BarSeries>
+    	</telerik:RadCartesianChart>
+    	
+    </Grid>
+</base:UCBase>

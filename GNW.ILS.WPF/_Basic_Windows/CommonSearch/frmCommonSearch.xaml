@@ -1,0 +1,56 @@
+﻿<controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:UserControls="clr-namespace:Pervation.Presentation._Basic_Windows.UserControls"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Pervation.Presentation._Basic_Windows.CommonSearch.frmCommonSearch"
+        Title="Common Search"  Loaded="frmSearch_Load" Closing="frmCommonSearch1_Closing" WindowStartupLocation="CenterOwner" Height="450" Width="890"  
+    GlowBrush="{DynamicResource AccentColorBrush}"
+        >
+    <Grid x:Name="tblLPMain" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Orientation="Horizontal">
+
+
+    		<ComboBox x:Name="cboSearcPara" ItemsSource="{Binding}"  Width="250" KeyUp="cboSearcPara_KeyUp" Height="26" Margin="0,0,5,0"/>
+    		<Grid >
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition Width="*"/>
+    				<ColumnDefinition Width="Auto"/>
+    			</Grid.ColumnDefinitions>
+    			<TextBox x:Name="txtSearchData" KeyDown="txtSearchData_KeyDown" Width="350"/>
+    			<Button x:Name="btnSearch" Click="btnSearch_Click" Style="{DynamicResource MinSearchButtonStyle}" Width="26" Height="26" Grid.Column="1"/>
+        </Grid>
+    	</StackPanel>
+
+
+        <Grid x:Name="___telerik_RadGridView_Columns_" Grid.Row="1" Margin="0,5">
+            <telerik:RadGridView x:Name="radGridViewMain" GroupRenderMode="Flat"
+				
+				ItemsSource="{Binding ''}"
+				CanUserFreezeColumns="False"
+				RowIndicatorVisibility="Collapsed"
+				AutoGenerateColumns="False"
+				IsReadOnly="True"
+				ShowGroupPanel="False" Initialized="radGridViewMain_Initialized" KeyDown="radGridViewMain_KeyDown" MouseDoubleClick="radGridViewMain_Mouse_DoubleClick" Height="Auto" VerticalAlignment="Stretch" SelectionChanged="radGridViewMain_SelectionChanged" KeyUp="radGridViewMain_KeyUp">
+                <telerik:RadGridView.BindingGroup>
+                    <BindingGroup/>
+                </telerik:RadGridView.BindingGroup>
+            </telerik:RadGridView>
+        </Grid>
+        <Grid  Grid.Row="2">
+            <Button x:Name="btnSelect" Content="SELECT"  Click="btnSelect_Click" Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="100"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,110,0">
+            	<UserControls:ucSearchPaging x:Name="ucSearchPaging"  Loaded="ucSearchPaging_Loaded" OnPageIndexChange="ucSearch_Paging_OnOageIndexChanged"/>
+            	<TextBlock x:Name="lblMessage" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="30,0,0,0" FontFamily="{DynamicResource BoldFontFamily}" Foreground="#FF1B92E4" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

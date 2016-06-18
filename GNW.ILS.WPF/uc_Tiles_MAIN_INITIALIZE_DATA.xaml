@@ -1,0 +1,111 @@
+﻿<base:UCBase
+    x:Class="GNW.ILS.WPF.uc_Tiles_MAIN_INITIALIZE_DATA"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:base="clr-namespace:GNW.ILS.WPF._Basic_Windows.Base"
+    mc:Ignorable="d" d:DesignWidth="840" d:DesignHeight="660">
+    <Grid Background="White">
+        <telerik:RadTileView x:Name="TileView"
+	                     ColumnsCount="4"
+	                     ColumnWidth="162"
+	                     IsAutoScrollingEnabled="True"
+	                     IsDockingEnabled="True"
+	                     IsVirtualizing="True"
+                         HeaderStyle="{StaticResource TileViewItemHeaderStyle1}"
+	                     MinimizedColumnWidth="75"
+	                     MinimizedRowHeight="75"
+	                     PreservePositionWhenMaximized="True"
+	                     RowHeight="162"
+	                     TileStateChangeTrigger="SingleClick" 
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center">
+
+            <telerik:RadTileViewItem  x:Name="TileVI_CompanyMaster"  MouseDown="TileVI_CompanyMaster_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/New-company.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblCompanyMaster"  Text="New Company"  TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_RouteMaster"  MouseDown="TileVI_RouteMaster_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/Route-Master.png" />
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblRouteMaster"  Text="Route Master" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_SalesExecutiveMaster"  MouseDown="TileVI_SalesExecutiveMaster_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/New-Salesman.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblSalesExecutiveMaster" Text="New Salesman" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_UOMMaster" MouseDown="TileVI_UOMMaster_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/unit_of_measure.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lbLUOMMaster" Text="Unit of Measure" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_PaymentTypeMaster"  MouseDown="TileVI_PaymentTypeMaster_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/Payment_Type.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblPaymentType" Text="Payment Type" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_SupplierMaster"  MouseDown="TileVI_SupplierMaster_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/new_supplier.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblSupplierMaster"  Text="New Supplier" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_ItemMaster"  MouseDown="TileVI_ItemMaster_MouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"  >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/new_item.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblItemMaster" Text="New Item" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_CustomerMaster" MouseDown="TileVI_CustomerMaster_mouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/new_customer.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblCustomerMaster" Text="New Customer" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_SupplierCategory"  MouseDown="TileVI_SupplierCategory_mouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/supplier_category.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblSupplierCategory"  Text="Supplier Category" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_ItemCategory"  MouseDown="TileVI_ItemCategory_mouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/item_category.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblItemCategory"  Text="Item Category" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_CustomerCategory" MouseDown="TileVI_CustomerCategory_mouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/customer_category.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblCustomerCategory" Text="Customer Category" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+
+            <telerik:RadTileViewItem  x:Name="TileVI_StoreLocationMaster"  MouseDown="TileVI_StoreLocationMaster_mouseDown" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Foreground="Black" >
+                <telerik:RadTileViewItem.Background>
+                    <ImageBrush ImageSource="Resources/store_location.png"/>
+                </telerik:RadTileViewItem.Background>
+                <TextBlock x:Name="lblStoreLocationMaster"  Text="Store Location" TextWrapping="Wrap" FontFamily="{DynamicResource BoldFontFamily}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,10" TextAlignment="Center"/>
+            </telerik:RadTileViewItem>
+        </telerik:RadTileView>
+    </Grid>
+</base:UCBase>

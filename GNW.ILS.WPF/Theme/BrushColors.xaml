@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+
+		<SolidColorBrush x:Key="DockPanelBGBrush" Color="#FF167CA8"/>
+		<SolidColorBrush x:Key="ButonBGBrush" Color="#FF1c6f93"/>
+		<SolidColorBrush x:Key="ButonTextBrush" Color="#FFFFFFFF"/>
+
+			<SolidColorBrush x:Key="MainMenuTextBrush" Color="White"/>
+			<SolidColorBrush x:Key="IconButtonPathBrush" Color="White"/>
+
+			<SolidColorBrush x:Key="TitleGBrush" Color="#FF1c6f93"/>
+			<SolidColorBrush x:Key="ControllerBorderBrush" Color="#FFCCCCCC"/>
+			<SolidColorBrush x:Key="LinkBrush" Color="#FF1E6D96"/>
+			<SolidColorBrush x:Key="FormBGBrush" Color="White"/>
+			<SolidColorBrush x:Key="ManuBGBrush" Color="DarkSlateGray"/>
+
+	
+
+
+</ResourceDictionary>
